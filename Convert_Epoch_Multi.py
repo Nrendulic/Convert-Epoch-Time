@@ -3,7 +3,7 @@ import zoneinfo
 
 def convert_epoch_to_readable(epoch_time, tz=timezone.utc):
     """Convert epoch time to a human-readable date and time in the given timezone."""
-    dt = datetime.fromtimestamp(int(epoch_time), tz=tz)
+    dt = datetime.fromtimestamp(int(epoch_time[:10]), tz=tz)  # Truncate input to first 10 characters
     return dt.strftime('%Y-%m-%d %H:%M:%S %Z')
 
 if __name__ == "__main__":
